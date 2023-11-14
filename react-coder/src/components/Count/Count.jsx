@@ -1,6 +1,7 @@
 import {useState} from 'react';
-
 const componentName = ({initial,stock}) => {
+
+   
 
     let [count, setCount] = useState (initial)
     const aumentar = () => {
