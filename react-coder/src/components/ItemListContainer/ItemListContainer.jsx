@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React,{ useState, useEffect } from 'react';
 import Count from '../Count/Count';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
