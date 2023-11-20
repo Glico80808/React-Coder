@@ -1,0 +1,35 @@
+nav {
+    background-color: #333; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    padding: 10px; /* Espaciado interno */
+  }
+  
+  /* Estilo para el título */
+  .titulo {
+    font-size: 24px; /* Tamaño de fuente del título */
+  }
+  
+  /* Estilo para la lista no ordenada (ul) */
+  ul {
+    list-style: none; /* Quita los marcadores de lista */
+    padding: 0;
+    display: flex; /* Muestra los elementos de la lista en línea */
+    justify-content: space-around; /* Espacio equitativo entre elementos */
+  }
+  
+  /* Estilo para los elementos de lista (li) */
+  li {
+    margin: 0;
+    padding: 0 10px; /* Espaciado horizontal entre elementos */
+  }
+  
+  /* Estilo para los enlaces (a) */
+  a {
+    text-decoration: none; /* Quita el subrayado predeterminado */
+    color: #fff; /* Color del texto del enlace */
+  }
+  
+  /* Estilo para los enlaces al pasar el mouse */
+  a:hover {
+    text-decoration: underline; /* Subraya el texto al pasar el mouse */
+  }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CartWidget from '../CartWidget/CartWidget';
 
 
 const Navbar2 = () => {
@@ -12,16 +13,17 @@ const Navbar2 = () => {
              <p> LOGO </p>
             </Link>
             <ul>
-                {enlaces.map((element,id) =>
+                {enlaces.map((e,id) =>
                 <li key={id}>
-                    <Link to= {`/React-Coder/${element}`}> 
-                    {element} 
+                    <Link to={`${e}`}> 
+                    {e} 
                     </Link>
 
                 </li>
                 
                 )}
             </ul>
+            <CartWidget/>
         </div>
     );
 };
