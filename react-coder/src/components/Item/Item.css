@@ -1,0 +1,8 @@
+h1 {
+    text-decoration: none; /* Quita el subrayado predeterminado */
+    color: #222121; /* Color del texto del enlace */
+  }
+
+  h1:hover {
+    text-decoration: underline; /* Subraya el texto al pasar el mouse */
+  }

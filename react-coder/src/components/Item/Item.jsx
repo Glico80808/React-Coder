@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
+import "./Item.css"
 const Item = ({product}) => {
 
     const onAdd = (quantity) => {
@@ -9,7 +10,7 @@ const Item = ({product}) => {
     return (
         <>
         <div className = 'contenedor'>
-            <Link to={`/item/${product.id}`}>
+            <Link to={`/React-Coder/item/${product.id}`}>
             <h1>{product.nombre}</h1>
             </Link>
 

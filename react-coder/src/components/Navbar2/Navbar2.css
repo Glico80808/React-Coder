@@ -24,10 +24,7 @@ nav {
   }
   
   /* Estilo para los enlaces (a) */
-  a {
-    text-decoration: none; /* Quita el subrayado predeterminado */
-    color: #fff; /* Color del texto del enlace */
-  }
+ 
   
   /* Estilo para los enlaces al pasar el mouse */
   a:hover {
