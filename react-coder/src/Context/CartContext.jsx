@@ -15,16 +15,16 @@ const addToCart = (producto, cantidad) => {
     const productoExistente = cart.find((prod) => prod.producto.id === producto.id);
 
     if (!productoExistente) {
-        // If the product is not in the cart, add it
+        // si el producto no esta en el carrito, agregalo
         setCart((prev) => [...prev, { producto, cantidad }]);
         setCantidadTotal((prev) => prev + cantidad);
         setTotal((prev) => prev + producto.precio * cantidad);
     } else {
-        // If the product is already in the cart, check if adding more would exceed the stock
+        // si el producto esta en el carrito, chquear si agregando mas excederia el stock
         const totalQuantity = productoExistente.cantidad + cantidad;
 
         if (totalQuantity <= producto.stock) {
-            // If adding more would not exceed the stock, update the cart
+            // si al agregar mas no se excede el stock, actualizar carrito
             const carritoActualizado = cart.map((prod) =>
                 prod.producto.id === producto.id ? { ...prod, cantidad: prod.cantidad + cantidad } : prod
             );
