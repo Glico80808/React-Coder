@@ -1,11 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import "./Item.css"
 const Item = ({product}) => {
 
+    const [quantity,setQuantity] = useState(0)
     const onAdd = (quantity) => {
-        alert(quantity)
+        setQuantity(quantity)
     }
     return (
         <>
@@ -15,10 +16,10 @@ const Item = ({product}) => {
             </Link>
 
             <img src = {product.img} alt = ""/>
-            <p>{product.precio}</p>
+            <p>Precio: {product.precio}</p>
 
         </div>
-        <ItemCount initial ={1} stock = {product.stock} onAdd = {onAdd}/>
+        
         </>
     );
 };

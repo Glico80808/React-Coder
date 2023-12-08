@@ -30,3 +30,12 @@ nav {
   a:hover {
     text-decoration: underline; /* Subraya el texto al pasar el mouse */
   }
+
+  a{
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .active{
+    color: blue
+  }

@@ -1,43 +1,52 @@
 import React,{ useState, useEffect } from 'react';
-import Count from '../Count/Count';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+import {collection,getDocs,getFirestore,query,where} from "firebase/firestore"
 
 const ItemListContainer = () =>{
+
 const [products, setProducts] = useState([]);
+const [loading, setLoading] = useState(true)
 const {categoryId} = useParams()
 
 useEffect(() => {
+// inicializar el estado de carga de los productos
+        setLoading(true);
+//crear la instancia de la db
+const db = getFirestore()
 
-    const fetchData = () => {
-        return fetch("/products.js")
-        .then((response) => response.json())
-        .then (( data) => {
-            if(categoryId){
-                const filterProducts = data.filter(p=>p.categoria == categoryId)
-                setProducts(filterProducts)
+// generar el filtrado de los productos
+const misProductos = categoryId
+? query(collection(db,"productos"),where("categoria","==",categoryId))
+: collection(db,"productos")
 
-            }else{
-            console.log(data)
-            setProducts(data)}
-        })
-        .catch((error) =>console.log(error))
-    }
-
-     fetchData()
-},[])
+//generar documentos solicitados
+getDocs(misProductos)
+.then((res)=>{
+    const nuevosProductos = res.docs.map((doc)=>{
+        const data = doc.data()
+        return {id:doc.id,...data}
+    })
+    setProducts(nuevosProductos)
+})
+.catch((error)=>console.log(error))
+.finally(()=>{
+    //se cancela el loading y se muestran los productos
+    setLoading(false)
+})
+        
+},[categoryId])
 
     return(
     <>
-        {products.length == 0 
-        ?
-        <h1>CARGANDO...</h1>
-        :
-        <ItemList products = {products}/>}
-
+       {loading ? (
+        <h1 className="pedidodemana">Cargando...</h1>
+       ) : (
+        <ItemList products={products}/>
+       )}
     </>
 );
 
-}
+};
 
 export default ItemListContainer;

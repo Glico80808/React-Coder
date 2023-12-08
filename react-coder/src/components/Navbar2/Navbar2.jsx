@@ -1,24 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget';
 import "./Navbar2.css"
 
 
 const Navbar2 = () => {
 
-      const enlaces = ["buzos y camperas","pantalones", "remeras","calzado","Contacto","Ubicacion"]
+      const enlaces = ["Buzos y camperas","Pantalones", "Remeras","Calzado","Contacto",]
 
     return (
         <nav>
-            < Link to= {"/React-Coder/"}>
+            < Link className="enlace" to= {"/React-Coder/"}>
              <p> LOGO </p>
             </Link>
-            <ul>
+            <ul className= "enlacesContainer">
                 {enlaces.map((e,id) =>
-                <li key={id}>
-                    <Link to={`/React-Coder/${e}`}> 
+                <li className="liContainer"key={id}>
+                    <NavLink activeclassname="active" to={`/React-Coder/${e}`}> 
                     {e} 
-                    </Link>
+                    </NavLink>
 
                 </li>
                 
